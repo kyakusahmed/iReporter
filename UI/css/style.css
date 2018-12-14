@@ -1,0 +1,382 @@
+* {box-sizing: border-box;}
+body {
+  background-color:  linen;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+.topnav {
+  overflow: hidden;
+  background-color: lightslategray ;
+  color: green;
+  padding: 0 100px;
+  margin: 10px;
+  border-radius: 0px;
+}
+.topnav h1{
+    float: left;
+    padding: 10px;
+    color:  #ffffff;
+    font-size: 20px;
+    background-origin: padding-box;
+    /* border-radius: 50%; */
+    background-color: lightslategray;
+    border: 2px solid linen; 
+}
+.topnav a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding:  20px;
+  text-decoration: none;
+  font-size: 16px;
+  margin: 8px 5px 0px 0px;
+}
+
+.topnav a:hover {
+  background-color: linen;
+  color: lightslategray;
+}
+.topnav a.active {
+  background-color: linen;
+  color: lightslategray;
+}
+
+.content {
+  margin: 0px 100px;
+  min-height: 80vh;
+  background-color: #ffffff;
+  padding: 45px;
+}
+
+.casess h4, .casess h6 {
+  text-align: center;
+  color: white;
+}
+.cases .case {
+  border-bottom: 1px double grey;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color:  lightslategray;
+  color: linen;
+  text-align: center;
+}
+.order-item {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  border-bottom: 2px solid green;
+}
+
+.content1 {
+  flex: 2;
+  background-color: #90ee90;
+}
+.content1 .title {
+  font-weight: bold;
+  color: green;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.content1 .title .price {
+  background: #008000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 12px;
+}
+
+.order-item .order-button .button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.order-item .order-button .pending {
+  background: #008000;
+  color: #fff;
+  border: 1px solid #90ee90;
+}
+
+.area .on button {
+  background: #008000;
+  border: 1px solid #008000;
+  color: #fff;
+  padding: 10px;
+  margin: -20px 0 0 -5px;
+
+}
+
+.order-item .order-button .declined {
+  background: #c0392b;
+  border: 1px solid #c0392b;
+  color: #fff;
+}
+.order-item .date {
+  color: green;
+  font-size: 12px;
+}
+
+.food-item {
+  margin: 10px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  border-bottom: 2px solid green;
+  background-color: lightgreen;
+}
+
+@media screen and (max-width: 620px) {
+  .topnav .search-container {
+    float: none;
+  }
+  .topnav a, .topnav input[type=text], .topnav .search-container button {
+    
+    display: block;
+    text-align: left;
+    width: 100%;
+    margin: 0;
+    padding: 14px;
+  }
+  .topnav input[type=text] {
+    border: 1px solid #ccc; 
+  }
+  .orders, .orders2, .orders .button {
+    display: inline;
+
+  }
+  .orders{
+    float: none;
+    margin: 0px;
+    width: auto;
+    padding: 10px;
+  }
+  
+}
+
+.button {
+  font: bold 11px Arial;
+  text-decoration: none;
+  background-color: #EEEEEE;
+  color: #333333;
+  padding: 2px 6px 2px 6px;
+  border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+
+}
+  @media screen and (max-width: 620px) {
+    .login-page, .SignUp, .input[type=submit] {
+      width: auto;
+      margin-top: 0;
+    }
+  }
+  @media only screen and (max-width: 300px) {
+    .text {
+      font-size: 11px;
+  
+    }
+}
+.footer {
+  height: 60px;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: lightgray;
+  color: black;
+  text-align: center;
+  padding: 10px;
+
+}
+
+@media screen and (max-width: 600px) {
+.topnav .search-container {
+  float: none;
+}
+.topnav a, .topnav input[type=text], .topnav .search-container button {
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 10px;
+  padding: 14px;
+}
+.topnav input[type=text] {
+  border: 1px solid #ccc;  
+}
+}
+
+.order-item {
+margin: 10px 0;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-start;
+border-bottom: 3px dotted #ffffff;
+}
+
+.order-image {
+flex: 1;
+}
+
+.order-image img {
+margin: 0;
+height: 120px;
+width: 220px;
+background-color: #EEEEEE;
+}
+.content .cases form {
+background-color: #008000;
+padding: 10px;
+background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/no.jpg");
+
+background-size: contain;
+}
+.on{
+  display: inline-flex;
+  padding-top: 16px;
+  padding-left: 1px;
+  margin: 4px 0 0 4px;
+}
+.area label{
+  color: linen;
+  font-size: 20px;
+  padding-bottom: 10px;
+}
+.area textarea{
+  margin: 0 0 0 10px;
+}
+.area{
+  display: flex;
+  padding: 5px;
+}
+.add .button{
+  background-color: green;
+  color: linen;
+  display: inline;
+} 
+
+form .add  {
+  margin-top: auto;
+  margin-left: 10px;
+  padding: 5px;
+  color: linen;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+}
+.flex-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+  width: auto;
+
+}
+.orders{
+  border: 1px solid #fff;
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+}
+
+.food {
+  margin: 10px 0;
+  justify-content: space-between;
+  padding: 10px;
+  color: #ffffff;
+}
+
+.image {
+  flex: 1;
+}
+.content1 .title {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+  font-size: 14px;
+
+}
+
+.content1 .title .price {
+  background: #008000;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+  font-size: 12px;
+}
+.food .content1 .desc {
+  color: #ffffff;
+}
+
+.food .button  {
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  display: inline-block;
+  background: transparent;
+}
+
+.food .button .edit {
+  background: #90ee90;
+  color: #fff;
+  border: 1px solid #90ee90;
+  border-radius: 5px;
+}
+
+.food .button .delete {
+  background: #ff0000;
+  border: 1px solid #ff0000;
+  color: #fff;
+  border-radius: 5px;
+  
+ 
+}
+
+.food .date {
+  color: #ffffff;
+  font-size: 12px;
+}
+
+.add-food {
+  background-color:#ccc;
+  padding: 10px;
+}
+.add-food .input-field {
+  margin-top: 5px;
+}
+.add-food .input-field label {
+  display: block;
+}
+.add-food .input-field input, .add-food .input-field textarea {
+  border: 1px solid black;
+  padding: 6px;
+  width: 100%;
+}
+
+.add-food .submit-button {
+  margin:  10px auto;
+}
+
+.add-food .submit-button .button {
+  padding: 10px;
+  background: #008000;
+  color: #fff;
+  border: none;
+}
