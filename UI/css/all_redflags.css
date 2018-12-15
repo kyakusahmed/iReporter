@@ -330,7 +330,7 @@ border: none;
   background: transparent;
 }
 
-.content1 .order-button .Pending {
+.content1 .order-button .draft {
   background: #ffa500;
   color: #faf0e6;
   border: 1px solid #ffa500;

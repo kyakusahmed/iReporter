@@ -345,3 +345,51 @@ border: none;
   padding: 5px;
 }
 
+.order-button{
+  display: inline-flex;
+  padding-top: 16px;
+  padding-left: 1px;
+  margin: 4px 0 0 4px;
+  cursor: pointer;
+  }
+
+.order-item .order-button .button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.content1 .order-button .draft {
+  background: #ffa500;
+  color: #faf0e6;
+  border: 1px solid #ffa500;
+}
+
+.content1 .order-button .successful {
+  background: #008000;
+  border: 1px solid #008000;
+  color: #fff;
+}
+
+.content1 .order-button .delete {
+  background: #c0392b;
+  border: 1px solid #c0392b;
+  color: #fff;
+}
+
+.content1 .order-button .rejected {
+  background: #c0392b;
+  border: 1px solid black;
+  color: #fff;
+}
+.content1 .order-button .Interven {
+  background: #0000ff;
+  border: 1px solid #0000ff;
+  color: #faf0e6;
+}
+
