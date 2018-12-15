@@ -273,6 +273,7 @@ display: flex;
 justify-content: center;
 margin-top: 80px;
 width: auto;
+
 }
 
 .image {
@@ -334,6 +335,10 @@ border: none;
   font-size: 12px;
   cursor: pointer;
   background: green;
+}
+.footer{
+  display: block;
+  
 }
 .footer .location a{
   color: #ffffff;
