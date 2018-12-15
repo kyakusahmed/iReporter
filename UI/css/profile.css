@@ -1,0 +1,85 @@
+* {box-sizing: border-box;}
+body {
+background-color:  linen;
+margin: 0;
+font-family: Arial, Helvetica, sans-serif;
+width: 100%;
+min-height: 100vh;
+}
+.topnav {
+overflow: hidden;
+background-color: lightslategray ;
+color: green;
+padding: 0 100px;
+margin: 10px;
+border-radius: 0px;
+}
+.topnav h1{
+float: left;
+padding: 10px;
+color:  #ffffff;
+font-size: 20px;
+background-origin: padding-box;
+background-color: lightslategray;
+border: 2px solid linen; 
+}
+.topnav a {
+float: right;
+display: block;
+color: white;
+text-align: center;
+padding:  20px;
+text-decoration: none;
+font-size: 16px;
+margin: 8px 5px 0px 0px;
+}
+
+.topnav a:hover {
+background-color: linen;
+color: lightslategray;
+}
+.topnav a.active {
+background-color: linen;
+color: lightslategray;
+}
+
+.content {
+    margin: 0px 100px 10px 100PX;
+    min-height: 80vh;
+    background-color: #ffffff;
+    padding: 45px;
+    border-left: 2px solid lightslategray;
+    border-right: 2px solid lightslategray;
+    }
+    
+    .casess h4, .casess h6 {
+    text-align: center;
+    color: white;
+    }
+    .cases .case {
+    border-bottom: 1px double grey;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color:  lightslategray;
+    color: linen;
+    text-align: center;
+    }
+
+    .order-image {
+        flex: 1;
+        padding: 10px ;
+        }
+        
+        .order-image img {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        background-color: #EEEEEE;
+        }
+        .content .cases form {
+        background-color: #008000;
+        padding: 10px;
+        background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/no.jpg");
+        
+        background-size: contain;
+        }
