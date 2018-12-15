@@ -45,7 +45,7 @@ body {
 .main-content{
   min-height: 30vh;
 }
- .heading{
+.heading{
   color: green;
 }
 .login-page{
@@ -79,8 +79,9 @@ body {
 }
 .login-form input:hover{
   border: 1px solid white;
- }
- .form p{
+}
+
+.form p{
   color: #778899;
   font-family: sans-serif;
 }
@@ -97,12 +98,12 @@ body {
   border-radius: 5px;
   margin-top: 10px;
   background-color: lightslategray;
- }
+}
 .form .button:hover,.form button:active{
   background-color: lightgray;
   color: lightslategray;
 }
- .form .message{
+.form .message{
   margin: 15px;
   color: lightslategray;
 }
@@ -115,7 +116,7 @@ body {
 @media only screen and (max-width: 300px) {
   .text {
     font-size: 11px;
-   }
+  }
 }
 .footer {
     height: 60px;
@@ -128,7 +129,7 @@ body {
     text-align: center;
     padding: 10px;
  }
- @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
   .topnav .search-container {
     float: none;
   }
@@ -143,7 +144,8 @@ body {
     border: 1px solid #ccc;  
   }
 }
- .order-item {
+
+.order-item {
   margin: 10px 0;
   display: flex;
   flex-direction: row;
@@ -159,3 +161,14 @@ body {
   height: 80px;
   width: 100px;
 }
+
+.order-image {
+  flex: 1;
+}
+
+.order-image img {
+  margin: 0;
+  height: 80px;
+  width: 100px;
+}
+
