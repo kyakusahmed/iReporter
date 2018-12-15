@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>iReporter</title>
+<link rel="stylesheet" type="text/css" href="css/profile.css">
+<meta charset="utf-8"> 
+<META name="keywords" lang="en-us" content="corruption cases in africa">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="topnav">
+    <h1>iReporter</h1>
+    <a href="index.html">SignOut</a>
+    <a href="redflags.html">Red-Flags</a>
+    <a class="active" href="#">Profile</a>
+    <a href="main.html">Home</a>
+</div>
+
+<div class="content">
+  <div class="cases">
+  
+      <div class="case">
+        My Profile
+          </div>
+      
+          <form action="/action">
+            <div class="area">
+              </div>
+                </form>
+
+                <div class="content2"> 
+                  <div class="order-image">
+                    <img src="images/pass.jpg" alt="default image">
+                  </div>
+
+                <div class="content1">
+                  <div class="description">
+                    <div class="self"><span>Name: <span>Ahmad Kyakulumbye</div>
+                    <div class="mail"><span>Email: <span>kyakusahmed@outlook.com</div>
+                    <div class="contact"><span>Phone number: <span>256706196611</div>
+                    <div class="primary_address"><span>Address: <span>Kamwenge, rwamwangya trading centre</div>
+                </div>
+                </div>
+              </div>
+            </div>  
+
+            <button class="open-button" onclick="openForm()">Edit Profile</button>
+              <div class="form-popup" id="myForm">
+                <form action="/action_page.php" class="form-container">
+                  <h1>kyakulumbye Ahmad</h1>
+
+                  <label for="address"><b>address</b></label>
+                  <input type="text" placeholder="address" name="adress" required>
+
+                  <label for="Numbers"><b>Phone Number</b></label>
+                  <input type="text" placeholder="Enter phone Number" name="Phone Number" required>
+
+                  <label for="text"><b>Job/institution/School</b></label>
+                  <input type="text" placeholder="Enter your job" name="ocuupation" required>
+
+                  <label for="address"><b>Date Of Birth</b></label>
+                  <input type="text" placeholder="date of Birth`" name="D.O.B" required>
+
+
+                  <button type="submit" class="btn">Save</button>
+                  <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                </form>
+              </div>
+            </div> 
+          </div>   
+  </div>
+</div>  
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+                
+
+    
+
+    
