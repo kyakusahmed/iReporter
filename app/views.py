@@ -2,8 +2,8 @@ from flask import Flask, jsonify, request
 from app.redflag import Redflag
 
 app2 = Flask(__name__)
-Redflag = Redflag()
 
+Redflag = Redflag()
 
 @app2.route('/api/v1/redflags', methods=['POST'])
 def create_redflag():

@@ -1,6 +1,5 @@
 from datetime import datetime
 
-
 interventions = []
 redflags = []
 
@@ -28,6 +27,6 @@ class Redflag:
             "created_at": str(datetime.now())
         }
         self.redflags.append(redflag)
-        return "redtag added successfully"
+        return "redflag added successfully"
 
     
