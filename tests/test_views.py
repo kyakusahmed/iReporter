@@ -9,6 +9,12 @@ class RedflagTest(unittest.TestCase):
         self.app2 = app2.test_client()
         self.app2.testing = True
 
+    def test_edit_redflag(self):
+        test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
+        self.app2.post('/api/v1/redflags', json=test_data)
+        body = {"body": "me and you"}
+        response = self.app2.put('/api/v1/redflags/1', json=body)
+        self.assertEqual(response.status_code, 404)
 
     def test_get_specific_redflag(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
