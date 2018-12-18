@@ -19,6 +19,7 @@ def delete_redflag(id):
 @app2.route('/api/v1/redflags/<int:id>', methods=["PUT"])
 def edit_redflag(id):
     get_input = request.get_json()
+    
     if not get_input.get("body"):
         return jsonify({"error" : "body is required"}), 200
     edit_redflag = Redflag.edit_redflag(id, get_input['body'])
@@ -33,11 +34,11 @@ def get_specific_redflag(id):
     if not redflag:
         return({"message":"redflag not found"}), 404
     return jsonify({"status": 200, "redflag": {'id':redflag[0],
-                                'client_id':redflag[1],
-                                'body':redflag[2],
-                                'location':redflag[3],
-                                'status':redflag[4],
-                                'created_at':redflag[5]}})
+                                                'client_id':redflag[1],
+                                                'body':redflag[2],
+                                                'location':redflag[3],
+                                                'status':redflag[4],
+                                                'created_at':redflag[5]}})
 
   
 @app2.route('/api/v1/redflags', methods=['GET'])    
@@ -66,6 +67,6 @@ def create_redflag():
         return jsonify({"error": "body is required"}), 200
     elif not data.get('location'):
         return jsonify({"error": "location is required"}), 200
-    return jsonify({"message": Redflag.create_redflag(id, data["client_id"], data["body"], data["location"]), "status": 201})
+    return jsonify({"message": Redflag.create_redflag(id, data["client_id"], data["body"], data["location"])}), 201
 
 
