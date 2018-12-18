@@ -56,6 +56,6 @@ def create_redflag():
         return jsonify({"error": "body is required"}), 200
     elif not data.get('location'):
         return jsonify({"error": "location is required"}), 200
-    return jsonify({"message": Redflag.create_redflag(id, data["client_id"], data["body"], data["location"]), "status": 201})
+    return jsonify({"message": Redflag.create_redflag(id, data["client_id"], data["body"], data["location"])}), 201
 
 
