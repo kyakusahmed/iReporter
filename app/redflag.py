@@ -14,6 +14,13 @@ class Redflag:
     def search_redflag(self, id):
         """Search specific redflag."""
         redflag = [redflag for redflag in self.redflags if redflag['id'] == int(id)] 
+        return redflag
+
+    def delete_redflag(self, id):
+        search = self.search_redflag(id)
+        if search:
+            self.redflags.remove(search[0])
+            return "redflag deleted"
         return redflag   
 
     def edit_redflag(self, id, body):
@@ -46,5 +53,6 @@ class Redflag:
         }
         self.redflags.append(redflag)
         return "redflag added successfully"
+
 
 
