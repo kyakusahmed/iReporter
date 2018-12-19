@@ -4,10 +4,14 @@ from app.redflag import Redflag
 app2 = Flask(__name__)
 Redflag = Redflag()
 
+@app2.route('/', methods=['GET'])
+def index():
+    """opening route."""
+    return jsonify({'message': 'welcome to iReporter. Navigate to api/v1/redflags'}), 200
+
 @app2.route('/api/v1/redflags/<int:id>/edit', methods=["PUT"])
 def edit_redflag(id):
     get_input = request.get_json()
-    
     if not get_input.get("body"):
         return jsonify({"error" : "body is required"}), 200
     edit_redflag = Redflag.edit_redflag(id, get_input['body'])
@@ -32,6 +36,10 @@ def get_all_redflags():
 @app2.route('/api/v1/redflags', methods=['POST'])
 def create_redflag():
     data = request.get_json()
+    validate_datatype = Redflag.validate_datatype(int, [data['client_id']])
+    if validate_datatype:
+        return jsonify({"data_type_error": validate_datatype }), 200
+    
     if not data.get("client_id"):
         return jsonify({"error": "client_id is required"}), 200
     elif not data.get("body"):

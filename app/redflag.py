@@ -57,5 +57,14 @@ class Redflag:
         self.redflags.append(redflag)
         return "redflag added successfully"
 
+    def validate_datatype(self, data_type, data=list):
+        """Valdate data type."""
+        for item in data:
+            try:
+                int(item)
+                # return data[item]
+            except ValueError as error:
+                return "Ooh no {}. Enter a valid value in {}".format(str(error), item)
+        return None
 
 
