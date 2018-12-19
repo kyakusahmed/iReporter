@@ -19,19 +19,35 @@ class RedflagTest(unittest.TestCase):
         response = self.app2.delete('/api/v1/redflags/1/delete')
         self.assertEqual(response.status_code, 200)
 
+    def test_delete_redflag_not_found(self):
+        test = {
+            "client_id": 7,
+            "body": "me and you",
+            "location": "bundibugyo"
+        }
+        self.app2.post('/api/v1/redflags', json=test)
+        response = self.app2.delete('/api/v1/redflags/1000/delete')
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 404) 
+        assert data['message'] == "unable to find redflag"
 
-    def test_edit_redflag(self):
+
+    def test_edit_redflag_flag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
         self.app2.post('/api/v1/redflags', json=test_data)
         body = {"body": "me and you"}
         response = self.app2.put('/api/v1/redflags/1/edit', json=body)
-        self.assertEqual(response.status_code, 200)
+        data = json.loads(response.get_data(as_text=True))
+        assert data["message"] == "unable to find redflag"
+        self.assertEqual(response.status_code, 404)
 
-    def test_get_specific_redflag(self):
+    def test_get_specific_redflag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
         self.app2.post('/api/v1/redflags', json=test_data)
-        response = self.app2.get('/api/v1/redflags/1/one')
-        self.assertEqual(response.status_code, 200)
+        response = self.app2.get('/api/v1/redflags/100/one')
+        data = json.loads(response.get_data(as_text=True))
+        assert data["message"] == "redflag not found"
+        self.assertEqual(response.status_code, 404)
 
     def test_get_all_redtags(self):
         """Test get all redflags."""

@@ -51,4 +51,6 @@ def delete_redflag(id):
         return jsonify({"message": "redflag deleted is successful"}), 200
     return jsonify({"error", "failed to delete redflag"}), 200    
 
+    
+
 
