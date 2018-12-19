@@ -46,5 +46,6 @@ omit =
     */jinja2/*
     */markupsafe/*
     */werkzeug/*
+    */__init__.py
 
 show_missing = True

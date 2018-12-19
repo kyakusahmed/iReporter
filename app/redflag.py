@@ -16,12 +16,15 @@ class Redflag:
         redflag = [redflag for redflag in self.redflags if redflag['id'] == int(id)] 
         return redflag
 
+    def get_specific_redflag(self, id):
+        return self.search_redflag(id)    
+
     def delete_redflag(self, id):
         search = self.search_redflag(id)
         if search:
             self.redflags.remove(search[0])
             return "redflag deleted"
-        return redflag   
+        return None   
 
     def edit_redflag(self, id, body):
         """Search redflag and update body and if not found, return None."""
