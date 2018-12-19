@@ -70,9 +70,9 @@ $ python run.py
 | get a specific      | api/v1/redflags/id     |  GET     |  id                                           | list                 |
 | redflag             |                        |          |                                               |                      |
 |                     |                        |          |                                               |                      |
-| user posts a parcel | api/v1/redflags        |  POST    | client_id, body, location                     | messsage that says   | 
+| user creates redflag| api/v1/redflags        |  POST    | client_id, body, location                     | messsage that says   | 
 |                     |                        |          |                                               | "redflag added       |
-|	                    |			                   |	        |                                               |       successfully"  |
+|	              |		               |	  |                                               | successfully"        |
 |                     |                        |          |                                               |                      |
 |user updates redflag | api/v1/redflags/id     |  PUT     | Body                                          |  message that says   |
 |                     |                        |          |                                               |  "redflag updated"   |
