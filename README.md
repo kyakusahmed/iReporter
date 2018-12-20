@@ -5,6 +5,8 @@
 # iReporter
 iReporter enables any/every citizen to bring any form of corruption to the notice of appropriate authorities and the general public. Users can also report on things that needs government intervention
 
+[HEROKU LINK](https://irepo.herokuapp.com)
+
 
 Features User side:
 
@@ -70,9 +72,9 @@ $ python run.py
 | get a specific      | api/v1/redflags/id     |  GET     |  id                                           | list                 |
 | redflag             |                        |          |                                               |                      |
 |                     |                        |          |                                               |                      |
-| user posts a parcel | api/v1/redflags        |  POST    | client_id, body, location                     | messsage that says   | 
+| user creates redflag| api/v1/redflags        |  POST    | client_id, body, location                     | messsage that says   | 
 |                     |                        |          |                                               | "redflag added       |
-|	                    |			                   |	        |                                               |       successfully"  |
+|	              |		               |	  |                                               | successfully"        |
 |                     |                        |          |                                               |                      |
 |user updates redflag | api/v1/redflags/id     |  PUT     | Body                                          |  message that says   |
 |                     |                        |          |                                               |  "redflag updated"   |
