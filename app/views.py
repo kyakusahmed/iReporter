@@ -22,7 +22,7 @@ def edit_redflag(id):
         return jsonify({"redflag": edit}), 200
     return jsonify({"message": "unable to find redflag"}), 404
 
-@app2.route('/api/v1/redflags/<int: id>/one', methods=['GET'])
+@app2.route('/api/v1/redflags/<int:id>/one', methods=['GET'])
 def get_specific_redflag(id):
     """get a specific redflag"""
     redflag1 = Redflag.get_specific_redflag(id)

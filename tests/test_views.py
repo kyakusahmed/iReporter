@@ -78,7 +78,7 @@ class RedflagTest(unittest.TestCase):
         response = self.app2.get('/')
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
-        assert data["message"] == "welcome to iReporter. Navigate to api/v1/redflags"
+        assert data["message"] == "welcome to iReporter."
 
     def test_create_redflag_location_is_required(self):
         data_test = {
