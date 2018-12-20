@@ -62,7 +62,6 @@ class Redflag:
         for item in data:
             try:
                 int(item)
-                # return data[item]
             except ValueError as error:
                 return "Ooh no {}. Enter a valid value in {}".format(str(error), item)
         return None
