@@ -67,18 +67,18 @@ $ python run.py
 
 | tasks               |    URLS                |  METHOD  |         PARAMS                                |   OUTPUT             |
 | ------------------- | -----------------------|----------|-----------------------------------------------|----------------------|
-| get all redflags    | api/v1/redflags        |  GET     |   ---------------                             | list of dictionaries |
+| get all redflags    | api/v1/redflags        |  GET     |   ---------------                             |a list and status 200 |
 |                     |                        |          |                                               |                      | 
-| get a specific      | api/v1/redflags/id     |  GET     |  id                                           | list                 |
-| redflag             |                        |          |                                               |                      |
+| get a specific      |  api/v1/redflags/      |  GET     |   redflag_id                                  |a list and status 200 |
+| redflag             |  redflag_id            |          |                                               |                      |
 |                     |                        |          |                                               |                      |
-| user creates redflag| api/v1/redflags        |  POST    | client_id, body, location                     | messsage that says   | 
-|                     |                        |          |                                               | "redflag added       |
-|	              |		               |	  |                                               | successfully"        |
+| user creates redflag| api/v1/redflags        |  POST    |   comment, createdBy, image, location, type,  | a messsage, "redflag | 
+|                     |                        |          |   video                                       | added successfully"  |
+|	              |		               |	  |                                               | and status 201       |
 |                     |                        |          |                                               |                      |
-|user updates redflag | api/v1/redflags/id     |  PUT     | Body                                          |  message that says   |
-|                     |                        |          |                                               |  "redflag updated"   |
-
+|user updates redflag | api/v1/redflags/       |  PUT     |   comment                                     | a message that says  |
+|                     | redflag_id             |          |                                               | "redflag updated"    |
+|                     |                        |          |                                               | and status 200       |
 
 ### How to run the Tests:
 
