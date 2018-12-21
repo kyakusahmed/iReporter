@@ -9,7 +9,7 @@ record = Redflag()
 @app.route('/', methods=['GET'])
 def index():
     """opening route."""
-    return jsonify({"status": 200}, {'message': 'welcome to iReporter.'}), 200
+    return jsonify({"status": 200, 'message': 'welcome to iReporter.'}), 200
 
 
 @app.route('/api/v1/redflags/<int:redflag_id>/edit', methods=["PUT"])
@@ -47,6 +47,8 @@ def create_redflag():
     if validate_datatype:
         return jsonify({"data_type_error": validate_datatype, "status": 400}), 400
 
+    if not data.get("comment"):
+            return jsonify({"error": "comment is required", "status": 400}), 400
     if not data.get("createdBy"):
         return jsonify({"error": "createdBy is required", "status": 400}), 400
     elif not data.get('type'):
