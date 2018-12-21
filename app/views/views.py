@@ -59,7 +59,7 @@ def create_redflag():
     record_type = data['type'] 
     record_types = ['redflag', 'interventions'] 
     if record_type not in record_types:
-        return jsonify({"error": " record_type {} doesnot exist".format(record_type), "status": 400})
+        return jsonify({"error": "record_type {} doesnot exist".format(record_type), "status": 400})
     incident = record.create_redflag("redflag_id", data["createdBy"], data['type'], 
     data["location"], data['image'], data['video'], data['comment'])
     red_flag = [{"redflag_id": incident['redflag_id'], "message": "redflag added successfully"}]

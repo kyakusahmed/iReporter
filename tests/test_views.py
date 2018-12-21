@@ -44,6 +44,7 @@ class RedflagTest(unittest.TestCase):
         assert data["error"] == "unable to find redflag"
         self.assertEqual(response.status_code, 404)
 
+
     def test_get_specific_redflag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
         self.app.post('/api/v1/redflags', json=test_data)
@@ -77,7 +78,6 @@ class RedflagTest(unittest.TestCase):
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 201)
         self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('data'), list)
-
 
     def test_opening_route(self):
         response = self.app.get('/')
@@ -126,6 +126,40 @@ class RedflagTest(unittest.TestCase):
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
         assert data["error"] == "type is required"
+
+    def test_data_type_entered_is_not_integer(self):
+        """test add new redflag."""
+        data_test = {
+            "comment": "abehtjtuk",
+            "createdBy": "",
+            "image": "image",
+            "location": "location",
+            "type": "redflag",
+            "video": "baiowqgb"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)
+
+    def test_record_type_doesnot_exist(self):
+        data_test = {
+            "comment": "abehtjtuk",
+            "createdBy": "",
+            "image": "image",
+            "location": "location",
+            "type": "erhj5w7k",
+            "video": "baiowqgb"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)
+        
+       
+        
+
+
+       
+
+       
+    
             
 
 
