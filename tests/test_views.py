@@ -1,13 +1,13 @@
 import unittest
 import json
-from app.views import app2
+from app.views.views import app
 
 class RedflagTest(unittest.TestCase):
     """Tests for Redflag."""
 
     def setUp(self):
-        self.app2 = app2.test_client()
-        self.app2.testing = True
+        self.app = app.test_client()
+        self.app.testing = True
 
     def test_delete_redflag(self):
         test = {
@@ -15,8 +15,8 @@ class RedflagTest(unittest.TestCase):
             "body": "me and you",
             "location": "bundibugyo"
         }
-        self.app2.post('/api/v1/redflags', json=test)
-        response = self.app2.delete('/api/v1/redflags/1/delete')
+        self.app.post('/api/v1/redflags', json=test)
+        response = self.app.delete('/api/v1/redflags/1/delete')
         self.assertEqual(response.status_code, 200)
 
     def test_delete_redflag_not_found(self):
@@ -25,8 +25,8 @@ class RedflagTest(unittest.TestCase):
             "body": "me and you",
             "location": "bundibugyo"
         }
-        self.app2.post('/api/v1/redflags', json=test)
-        response = self.app2.delete('/api/v1/redflags/1000/delete')
+        self.app.post('/api/v1/redflags', json=test)
+        response = self.app.delete('/api/v1/redflags/1000/delete')
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 404) 
         assert data['message'] == "unable to find redflag"
@@ -34,17 +34,17 @@ class RedflagTest(unittest.TestCase):
 
     def test_edit_redflag_flag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
-        self.app2.post('/api/v1/redflags', json=test_data)
+        self.app.post('/api/v1/redflags', json=test_data)
         body = {"body": "me and you"}
-        response = self.app2.put('/api/v1/redflags/1/edit', json=body)
+        response = self.app.put('/api/v1/redflags/1/edit', json=body)
         data = json.loads(response.get_data(as_text=True))
         assert data["message"] == "unable to find redflag"
         self.assertEqual(response.status_code, 404)
 
     def test_get_specific_redflag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
-        self.app2.post('/api/v1/redflags', json=test_data)
-        response = self.app2.get('/api/v1/redflags/100/one')
+        self.app.post('/api/v1/redflags', json=test_data)
+        response = self.app.get('/api/v1/redflags/100/one')
         data = json.loads(response.get_data(as_text=True))
         assert data["message"] == "redflag not found"
         self.assertEqual(response.status_code, 404)
@@ -56,8 +56,8 @@ class RedflagTest(unittest.TestCase):
             "body": "me and you",
             "location": "bundibugyo"
         }
-        response = self.app2.post('/api/v1/redflags', json=data_test)
-        response = self.app2.get('/api/v1/redflags')
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        response = self.app.get('/api/v1/redflags')
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('redflags'), list)
    
@@ -68,14 +68,14 @@ class RedflagTest(unittest.TestCase):
             "body": "me and you",
             "location": "bundibugyo"
         }
-        response = self.app2.post('/api/v1/redflags', json=data_test)
+        response = self.app.post('/api/v1/redflags', json=data_test)
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 201)
         assert data["message"] == "redflag added successfully"
 
 
     def test_opening_route(self):
-        response = self.app2.get('/')
+        response = self.app.get('/')
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
         assert data["message"] == "welcome to iReporter."
@@ -86,7 +86,7 @@ class RedflagTest(unittest.TestCase):
             "body": "me and you",
             "location": ""
         }
-        response = self.app2.post('/api/v1/redflags', json=data_test)
+        response = self.app.post('/api/v1/redflags', json=data_test)
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
         assert data["error"] == "location is required"
@@ -97,7 +97,7 @@ class RedflagTest(unittest.TestCase):
             "body": "",
             "location": "aqncqvbi"
         }
-        response = self.app2.post('/api/v1/redflags', json=data_test)
+        response = self.app.post('/api/v1/redflags', json=data_test)
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
         assert data["error"] == "body is required"
@@ -108,7 +108,7 @@ class RedflagTest(unittest.TestCase):
             "body": "viwsba",
             "location": "aqncqvbi"
         }
-        response = self.app2.post('/api/v1/redflags', json=data_test)
+        response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 200)
             
 
