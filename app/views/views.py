@@ -1,9 +1,11 @@
 """all the endpoints"""
 from flask import Flask, jsonify, request
 from app.models.redflag import Redflag
+from app.views.validator import Validation
 
 app = Flask(__name__)
 record = Redflag()
+validation = Validation()
 
 
 @app.route('/', methods=['GET'])
@@ -12,7 +14,7 @@ def index():
     return jsonify({"status": 200, 'message': 'welcome to iReporter.'}), 200
 
 
-@app.route('/api/v1/redflags/<int:redflag_id>/edit', methods=["PUT"])
+@app.route('/api/v1/redflags/<int:redflag_id>/edit', methods=["PATCH"])
 def edit_redflag(redflag_id):
     """edit a specific redflag"""
     input_data = request.get_json()
@@ -42,26 +44,23 @@ def get_all_redflags():
 @app.route('/api/v1/redflags', methods=['POST'])
 def create_redflag():
     """add redflag to self.redflags"""
+    input_validation = validation.input_data_validation(["comment", "location", "type"])
+    if input_validation:
+        return jsonify({"status": 400, "error": input_validation[0]}), 400
+
     data = request.get_json()
-    validate_datatype = record.validate_datatype(int, [data['createdBy']])
+    validate_datatype = validation.validate_datatype(int, [data['createdBy']])
     if validate_datatype:
         return jsonify({"data_type_error": validate_datatype, "status": 400}), 400
-
-    if not data.get("comment"):
-            return jsonify({"error": "comment is required", "status": 400}), 400
-    if not data.get("createdBy"):
-        return jsonify({"error": "createdBy is required", "status": 400}), 400
-    elif not data.get('type'):
-        return jsonify({"error": "type is required", "status": 400}), 400    
-    elif not data.get('location'):
-        return jsonify({"error": "location is required", "status": 400}), 400
 
     record_type = data['type'] 
     record_types = ['redflag', 'interventions'] 
     if record_type not in record_types:
-        return jsonify({"error": "record_type {} doesnot exist".format(record_type), "status": 400})
+        return jsonify({"error": "record_type {} doesnot exist".format(record_type), "status": 400}), 400
+
     incident = record.create_redflag("redflag_id", data["createdBy"], data['type'], 
     data["location"], data['image'], data['video'], data['comment'])
+
     red_flag = [{"redflag_id": incident['redflag_id'], "message": "redflag added successfully"}]
     return jsonify({"data": red_flag, "status": 201}), 201
 
