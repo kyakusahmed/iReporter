@@ -40,6 +40,7 @@ def get_all_redflags():
     """fetch all redflags"""
     redflags = record.get_all_redflags()
     return jsonify({"redflags": redflags, "status": 200}), 200
+    
 
 @app.route('/api/v1/redflags', methods=['POST'])
 def create_redflag():
