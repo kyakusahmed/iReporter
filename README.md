@@ -68,10 +68,10 @@ $ python run.py
 
 | tasks               |    URLS                |  METHOD  |         PARAMS                   |   OUTPUT                          |
 | ------------------- | -----------------------|----------|----------------------------------|-----------------------------------|
-| get all redflags    | api/v1/redflags        |  GET     |   ---------------                | {'redflag': [], 'status': 200 }   |
+| get all redflags    | api/v1/redflags        |  GET     |   ---------------                | {'redflag': [ ], 'status': 200 }  |
 |                     |                        |          |                                  |                                   |
 |                     |                        |          |                                  |                                   | 
-| get a specific      |  api/v1/redflags/      |  GET     |   redflag_id                     | {'redflag': [], 'status': 200}    |
+| get a specific      |  api/v1/redflags/      |  GET     |   redflag_id                     | {'redflag': [ ], 'status': 200}   |
 | redflag             |  redflag_id            |          |                                  |                                   |
 |                     |                        |          |                                  |                                   |
 | user creates redflag| api/v1/redflags        |  POST    |   comment, createdBy, image,     | {'data': [{'message': 'redflag    |
@@ -80,7 +80,7 @@ $ python run.py
 |                     |                        |          |                                  |      'status': 201 }              |
 |                     |                        |          |                                  |                                   |
 |                     |                        |          |                                  |                                   |
-|user updates redflag | api/v1/redflags/       |  PUT     |   comment                        | {'redflag': [{'message': 'comment |
+|user updates redflag | api/v1/redflags/       |  PATCH   |  comment                         |{'redflag': [{'message': 'comment  |
 |                     | redflag_id             |          |                                  | updated', 'redflag': redflag_id}],|
 |                     |                        |          |                                  |            'status': 200 }        |
 |                     |                        |          |                                  |                                   |
