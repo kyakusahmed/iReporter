@@ -18,7 +18,7 @@ class Validation:
         return None
 
     def input_data_validation(self, input_data):
-        """Search for input x and check for empty string."""
+        """Search for x and check if input is an empty string."""
         for x in input_data:
             input = request.get_json()
             input[x]
