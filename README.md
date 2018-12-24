@@ -80,8 +80,8 @@ $ python run.py
 |                     |                        |          |                                  |      'status': 201 }              |
 |                     |                        |          |                                  |                                   |
 |                     |                        |          |                                  |                                   |
-|user updates redflag |  api/v1/redflags/      |  PATCH   |  comment                         |{'redflag': [{'message': 'comment  |
-|                     |  <int:redflag_id>      |          |                                  | updated', 'redflag': redflag_id}],|
+|user updates redflag |   api/v1/redflags/     |  PATCH   |   comment                        |{'redflag': [{'message': 'comment  |
+|                     | <int:redflag_id>/edit  |          |                                  | updated', 'redflag': redflag_id}],|
 |                     |                        |          |                                  |            'status': 200 }        |
 |                     |                        |          |                                  |                                   |
 | user delete redflag/|    api/v1/redflag/     |  DELETE  |    --------------------------    | {"message": "redflag deleted is   |
