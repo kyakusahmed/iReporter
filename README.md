@@ -74,10 +74,10 @@ $ python run.py
 | get a specific      |  api/v1/redflags/      |  GET     |   ---------------------------    | {'redflag': [ ], 'status': 200}   |
 | redflag             |  <int:redflag_id>      |          |                                  |                                   |
 |                     |                        |          |                                  |                                   |
-| user creates redflag|  api/v1/redflags       |  POST    |   comment, createdBy, image,     | {'data': [{'message': 'redflag    |
-|                     |                        |          |   location, type, video          |           added successfully',    |
-|	              |		               |	  |                                  |           'redflag_id': id }],    |
-|                     |                        |          |                                  |      'status': 201 }              |
+| user creates redflag|  api/v1/redflags       |  POST    |   comment, createdBy, image,     | {'data': [{'message':             |
+|                     |                        |          |   location, type, video          |   'redflag added successfully',   |
+|	              |		               |	  |                                  |     'redflag_id': redflag_id }],  |
+|                     |                        |          |                                  | 'status': 201 }                   |
 |                     |                        |          |                                  |                                   |
 |                     |                        |          |                                  |                                   |
 |user updates redflag |   api/v1/redflags/     |  PATCH   |   comment                        |{'redflag': [{'message': 'comment  |
