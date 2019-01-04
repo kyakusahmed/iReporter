@@ -28,7 +28,7 @@ class Redflag:
         if search:
             self.redflags.remove(search[0])
             return "redflag deleted"
-        return None   
+         
 
 
     def edit_redflag(self, redflag_id, comment):

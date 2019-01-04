@@ -71,12 +71,7 @@ def delete_redflag(redflag_id):
     """remove item from self.redflags"""
     search = record.search_redflag(redflag_id)
     if not search:
-        return jsonify({"error": "unable to find redflag", "status": 400}), 400
+        return jsonify({"error": "unable to find redflag", "status": 400}), 400  
     delete = record.delete_redflag(redflag_id)
     if delete:
         return jsonify({"status": 200, "message": "redflag deleted is successful"}), 200
-    return jsonify({"status": 400, "error": "failed to delete redflag"}), 400   
-
-    
-
-

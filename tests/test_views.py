@@ -39,6 +39,43 @@ class RedflagTest(unittest.TestCase):
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "unable to find redflag")
 
 
+    def test_edit_redflag_flag_comment_missing(self):
+        test_data = {
+            "comment": "",
+            "createdBy": 1,
+            "image": "image",
+            "location": "location",
+            "status": "pending",
+            "type": "redflag",
+            "video": "video"
+            }
+        self.app.post('/api/v1/redflags', json=test_data)
+        body = {
+            "comment": ""
+            }
+        response = self.app.patch('/api/v1/redflags/2/edit', json=body)
+        self.assertEqual(response.status_code, 400)
+
+
+    def test_edit_redflag_flag(self):
+        test_data = {
+            "comment": "wgrhtyj5",
+            "createdBy": 1,
+            "image": "image",
+            "location": "location",
+            "status": "pending",
+            "type": "redflag",
+            "video": "video"
+            }
+        self.app.post('/api/v1/redflags', json=test_data)
+        body = {
+            "comment": "me and you"
+            }
+        response = self.app.patch('/api/v1/redflags/2/edit', json=body)
+        self.assertEqual(response.status_code, 200)    
+
+
+
     def test_get_specific_redflag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
         self.app.post('/api/v1/redflags', json=test_data)
@@ -46,6 +83,23 @@ class RedflagTest(unittest.TestCase):
         data = json.loads(response.get_data(as_text=True))
         assert data["error"] == "redflag not found"
         self.assertEqual(response.status_code, 404)
+
+
+    def test_get_specific_redflag(self):
+        test_data = {
+            "comment": "comment",
+            "createdBy": 1,
+            "image": "image",
+            "location": "location",
+            "status": "pending",
+            "type": "redflag",
+            "video": "video"
+            }
+        self.app.post('/api/v1/redflags', json=test_data)
+        response = self.app.get('/api/v1/redflags/2/one')
+        data = json.loads(response.get_data(as_text=True))
+        self.assertEqual(response.status_code, 200)
+        assert data['redflag'][0]['createdBy'] == 1
 
     def test_get_all_redtags(self):
         """Test get all redflags."""
