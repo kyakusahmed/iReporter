@@ -7,24 +7,24 @@ iReporter enables any/every citizen to bring any form of corruption to the notic
 
 Features User side:
 
--  Signup page using personal information.
--  Login page using Email and Password
--  create a red-flag record.
--  create an intervention record
--  delete a red-flag or intervention record
--  add videos or image to either red-flag or intervention record
--  add geolocation to either red-flag or intervention record
--  view all user red-flag  or intervention records a user has created
+  -  Signup page using personal information.
+  -  Login page using Email and Password
+  -  create a red-flag record.
+  -  create an intervention record
+  -  delete a red-flag or intervention record
+  -  add videos or image to either red-flag or intervention record
+  -  add geolocation to either red-flag or intervention record
+  -  view all user red-flag  or intervention records a user has created
 
 User's profile where a User can view
--  the number of red-flags/interventions that has been resolved
--  the number of red-flags/interventions that has yet be resolved(in draft or under investigation states)
--  the number of red-flags/interventions that has been rejected
--  list of all red-flag/interventions records
+  -  the number of red-flags/interventions that has been resolved
+  -  the number of red-flags/interventions that has yet be resolved(in draft or under investigation states)
+  -  the number of red-flags/interventions that has been rejected
+  -  list of all red-flag/interventions records
 
 
 As an Admin:
 
--  i can change the status of a red-flag/intervention records
--  i can see all the red-flag/intervention records by all users
+  -  i can change the status of a red-flag/intervention records
+  -  i can see all the red-flag/intervention records by all users
 
