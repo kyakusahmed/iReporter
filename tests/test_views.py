@@ -20,16 +20,14 @@ class RedflagTest(unittest.TestCase):
         }
         self.app.post('/api/v1/redflags', json=test)
         response = self.app.delete('/api/v1/redflags/1/delete')
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
-        assert data["message"] == "redflag deleted is successful"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('message'), "redflag deleted is successful")
         
 
     def test_delete_redflag_not_found(self):
         response = self.app.delete('/api/v1/redflags/1000/delete')
-        data = json.loads(response.get_data(as_text=True))
-        self.assertEqual(response.status_code, 400) 
-        assert data['error'] == "unable to find redflag"
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "unable to find redflag")
 
 
     def test_edit_redflag_flag_not_found(self):
@@ -72,16 +70,14 @@ class RedflagTest(unittest.TestCase):
             "comment": "me and you"
             }
         response = self.app.patch('/api/v1/redflags/2/edit', json=body)
-        self.assertEqual(response.status_code, 200)    
-
+        self.assertEqual(response.status_code, 200)
 
 
     def test_get_specific_redflag_not_found(self):
         test_data = {"client_id": 1, "body": "ofbuvaboveg", "location": "masaka"}
         self.app.post('/api/v1/redflags', json=test_data)
         response = self.app.get('/api/v1/redflags/100/one')
-        data = json.loads(response.get_data(as_text=True))
-        assert data["error"] == "redflag not found"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "redflag not found")
         self.assertEqual(response.status_code, 404)
 
 
@@ -97,9 +93,9 @@ class RedflagTest(unittest.TestCase):
             }
         self.app.post('/api/v1/redflags', json=test_data)
         response = self.app.get('/api/v1/redflags/2/one')
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
-        assert data['redflag'][0]['createdBy'] == 1
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('redflag')[0]['createdBy'], 1)
+
 
     def test_get_all_redtags(self):
         """Test get all redflags."""
@@ -124,17 +120,16 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 201)
         self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('data'), list)
-        assert data['data'][0]['message'] == "redflag added successfully"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
 
 
     def test_opening_route(self):
         response = self.app.get('/')
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 200)
-        assert data["message"] == "welcome to iReporter."
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('message'), "welcome to iReporter.")
+        
 
     def test_create_redflag_location_is_required(self):
         data_test = {
@@ -146,9 +141,8 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
-        assert data["error"] == "missing field"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
 
     def test_create_redflag_comment_is_required(self):
         data_test = {
@@ -160,9 +154,8 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
-        assert data['error'] == "missing field"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
 
     def test_create_redflag_type_is_required(self):
         data_test = {
@@ -189,9 +182,11 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
-        assert data["data_type_error"] == "Sorry invalid literal for int() with base 10: ''. please enter an integer value "
+        self.assertEqual(json.loads(
+            response.data.decode('utf-8')).get("data_type_error"),
+            "Sorry invalid literal for int() with base 10: ''. please enter an integer value "
+            )
 
 
     def test_record_type_doesnot_exist(self):
@@ -204,7 +199,6 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=test_data)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
-        assert data["error"] == "record_type aefbtnw doesnot exist"
-        
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "record_type aefbtnw doesnot exist")
+      
