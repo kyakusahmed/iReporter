@@ -21,7 +21,6 @@ User's profile where a User can view
 -   the number of red-flags/interventions that has been rejected
 -   list of all red-flag/interventions records
 
-
 As an Admin:
 
 -   i can change the status of a red-flag/intervention records
