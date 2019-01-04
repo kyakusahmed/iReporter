@@ -25,7 +25,3 @@ class Validation:
             if not input[x]:
                 self.message.append('missing field')
                 return self.message 
-
-             
-        
-    

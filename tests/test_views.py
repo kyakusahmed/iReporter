@@ -156,7 +156,7 @@ class RedflagTest(unittest.TestCase):
             "createdBy": 1,
             "image": "image",
             "location": "location",
-            "type": "",
+            "type": "redflag",
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
@@ -207,29 +207,4 @@ class RedflagTest(unittest.TestCase):
         data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
         assert data["error"] == "record_type aefbtnw doesnot exist"
-
-      
-
-
-    
         
-
-
-       
-
-       
-    
-            
-
-
-
-
-    
-
-
-  
-       
-        
-     
-
-
