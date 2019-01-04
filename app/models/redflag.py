@@ -1,7 +1,9 @@
+"""Manage redflags."""
 from datetime import datetime
 
 interventions = []
 Redflags = []
+
 
 class Redflag:
     """class to manipulate red-flags."""
@@ -10,17 +12,15 @@ class Redflag:
         self.interventions = interventions
         self.redflags = Redflags
 
-
     def search_redflag(self, redflag_id):
         """Search specific redflag."""
-        search = [item for item in self.redflags if item['redflag_id'] == redflag_id] 
+        search = [
+            item for item in self.redflags if item['redflag_id'] == redflag_id]
         return search
-
 
     def get_specific_redflag(self, redflag_id):
         """get one redflag."""
         return self.search_redflag(redflag_id)
-
 
     def delete_redflag(self, redflag_id):
         """remove a specific redflag."""
@@ -28,28 +28,27 @@ class Redflag:
         if search:
             self.redflags.remove(search[0])
             return "redflag deleted"
-         
-
 
     def edit_redflag(self, redflag_id, comment):
         """Search redflag and update body and if not found, return None."""
         redflag = self.search_redflag(redflag_id)
         if redflag:
             redflag[0].update({'comment': comment})
-            return [{"message": "comment updated", "redflag_id": redflag[0]['redflag_id']}]
-        return None    
-
+            return [{
+                "message": "comment updated",
+                "redflag_id": redflag[0]['redflag_id']
+                }]
+        return None
 
     def get_all_redflags(self):
         """get list of all red-flags."""
         return self.redflags
 
-
-    def create_redflag(self, comment, createdBy, image, location, redflag_id, type, video):
+    def create_redflag(self, comment, createdby, image, location, type, video):
         """create new red-flag."""
         redflag = {
             "comment": comment,
-            "createdBy": createdBy,
+            "createdby": createdby,
             "createdOn": str(datetime.now()),
             "image": image,
             "location": location,
@@ -60,9 +59,3 @@ class Redflag:
         }
         self.redflags.append(redflag)
         return redflag
-
-    
-
-
-    
-                   

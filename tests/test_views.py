@@ -167,9 +167,9 @@ class RedflagTest(unittest.TestCase):
             "video": "baiowqgb"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
-        data = json.loads(response.get_data(as_text=True))
         self.assertEqual(response.status_code, 400)
-        assert data["error"] == "missing field"
+        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
+
 
     def test_data_type_entered_is_not_integer(self):
         """test add new redflag."""
@@ -201,4 +201,3 @@ class RedflagTest(unittest.TestCase):
         response = self.app.post('/api/v1/redflags', json=test_data)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "record_type aefbtnw doesnot exist")
-      

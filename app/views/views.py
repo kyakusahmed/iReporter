@@ -54,7 +54,7 @@ def create_redflag():
         return jsonify({"status": 400, "error": input_validation[0]}), 400
 
     data = request.get_json()
-    validate_datatype = validation.validate_datatype(int, [data['createdBy']])
+    validate_datatype = validation.validate_datatype(int, [data['createdby']])
     if validate_datatype:
         return jsonify({
             "data_type_error": validate_datatype,
@@ -69,8 +69,7 @@ def create_redflag():
             }), 400
 
     incident = record.create_redflag(
-        "redflag_id",
-        data["createdBy"],
+        data["createdby"],
         data['type'],
         data["location"],
         data['image'],
@@ -93,5 +92,4 @@ def delete_redflag(redflag_id):
     if delete:
         return jsonify({
             "status": 200,
-            "message": "redflag deleted is successful"
-            }), 200
+            "message": "redflag deleted is successful"}), 200
