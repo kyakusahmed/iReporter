@@ -12,7 +12,7 @@ class RedflagTest(unittest.TestCase):
     def test_delete_redflag(self):
         test = {
             "comment": "hey boss, u dont have to give money to do for u this",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "type": "redflag",
@@ -40,7 +40,7 @@ class RedflagTest(unittest.TestCase):
     def test_edit_redflag_flag_comment_missing(self):
         test_data = {
             "comment": "",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "status": "pending",
@@ -58,7 +58,7 @@ class RedflagTest(unittest.TestCase):
     def test_edit_redflag_flag(self):
         test_data = {
             "comment": "wgrhtyj5",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "status": "pending",
@@ -84,7 +84,7 @@ class RedflagTest(unittest.TestCase):
     def test_get_specific_redflag(self):
         test_data = {
             "comment": "comment",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "status": "pending",
@@ -94,8 +94,6 @@ class RedflagTest(unittest.TestCase):
         self.app.post('/api/v1/redflags', json=test_data)
         response = self.app.get('/api/v1/redflags/2/one')
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(json.loads(response.data.decode('utf-8')).get('redflag')[0]['createdBy'], 1)
-
 
     def test_get_all_redtags(self):
         """Test get all redflags."""
@@ -113,7 +111,7 @@ class RedflagTest(unittest.TestCase):
         """test add new redflag."""
         data_test = {
             "comment": "abehtjtuk",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "type": "redflag",
@@ -134,7 +132,7 @@ class RedflagTest(unittest.TestCase):
     def test_create_redflag_location_is_required(self):
         data_test = {
             "comment": "covbwcwuob",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "",
             "type": "redflag",
@@ -147,7 +145,7 @@ class RedflagTest(unittest.TestCase):
     def test_create_redflag_comment_is_required(self):
         data_test = {
             "comment": "",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "type": "redflag",
@@ -160,7 +158,7 @@ class RedflagTest(unittest.TestCase):
     def test_create_redflag_type_is_required(self):
         data_test = {
             "comment": "hey boss, u dont have to give money to do for u this",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "type": "",
@@ -175,7 +173,7 @@ class RedflagTest(unittest.TestCase):
         """test add new redflag."""
         data_test = {
             "comment": "abehtjtuk",
-            "createdBy": "",
+            "createdby": "",
             "image": "image",
             "location": "location",
             "type": "redflag",
@@ -192,7 +190,7 @@ class RedflagTest(unittest.TestCase):
     def test_record_type_doesnot_exist(self):
         test_data = {
             "comment": "abehtjtuk",
-            "createdBy": 1,
+            "createdby": 1,
             "image": "image",
             "location": "location",
             "type": "aefbtnw",
