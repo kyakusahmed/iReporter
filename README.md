@@ -8,9 +8,7 @@ iReporter enables any/every citizen to bring any form of corruption to the notic
 
 [HEROKU LINK](https://irepo.herokuapp.com)
 
-
 Features User side:
-
 -  Signup page using personal information.
 -  Login page using Email and Password
 -  create a red-flag record.

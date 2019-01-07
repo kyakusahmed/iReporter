@@ -43,7 +43,7 @@ def get_all_redflags():
 
 
 @app.route('/api/v1/redflags', methods=['POST'])
-def create_redflag():
+def add_redflag():
     """add redflag to self.redflags"""
     input_validation = validation.input_data_validation([
         "comment",
@@ -68,7 +68,7 @@ def create_redflag():
             "status": 400
             }), 400
 
-    incident = record.create_redflag(
+    incident = record.add_redflag(
         data["createdby"],
         data['type'],
         data["location"],

@@ -44,7 +44,7 @@ class Redflag:
         """get list of all red-flags."""
         return self.redflags
 
-    def create_redflag(self, comment, createdby, image, location, type, video):
+    def add_redflag(self, comment, createdby, image, location, type, video):
         """create new red-flag."""
         redflag = {
             "comment": comment,

@@ -127,9 +127,9 @@ class RedflagTest(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('message'), "welcome to iReporter.")
-        
 
-    def test_create_redflag_location_is_required(self):
+        
+    def test_add_redflag_location_is_required(self):
         data_test = {
             "comment": "covbwcwuob",
             "createdby": 1,
