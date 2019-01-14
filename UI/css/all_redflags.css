@@ -180,7 +180,7 @@ border: 1px solid #ccc;
 
 }
 
-.order-item {
+.redflag-item {
 margin: 10px 0;
 display: flex;
 flex-direction: row;
@@ -189,12 +189,12 @@ justify-content: flex-start;
 border-bottom: 3px dotted #ffffff;
 }
 
-.order-image {
+.redflag-image {
 flex: 1;
 padding: 10px ;
 }
 
-.order-image img {
+.redflag-image img {
 margin: 0;
 height: 100%;
 width: 100%;
@@ -312,14 +312,14 @@ border: none;
   padding: 5px;
 }
 
-.order-button{
+.redflag-button{
   display: inline-flex;
   padding-top: 16px;
   padding-left: 1px;
   margin: 4px 0 0 4px;
   }
 
-.order-item .order-button .button {
+.redflag-item .redflag-button .button {
   display: inline-block;
   margin-top: auto;
   padding: 5px;
@@ -330,35 +330,35 @@ border: none;
   background: transparent;
 }
 
-.content1 .order-button .draft {
+.content1 .redflag-button .draft {
   background: #ffa500;
   color: #faf0e6;
   border: 1px solid #ffa500;
 }
 
-.content1 .order-button .successful {
+.content1 .redflag-button .successful {
   background: #008000;
   border: 1px solid #008000;
   color: #fff;
 }
 
-.content1 .order-button .delete {
+.content1 .redflag-button .delete {
   background: #c0392b;
   border: 1px solid #c0392b;
   color: #fff;
 }
 
-.content1 .order-button .rejected {
+.content1 .redflag-button .rejected {
   background: #c0392b;
   border: 1px solid black;
   color: #fff;
 }
-.content1 .order-button .interven {
+.content1 .redflag-button .interven {
   background: #0000ff;
   border: 1px solid #0000ff;
   color: #faf0e6;
 }
-.content1 .order-button .update status {
+.content1 .redflag-button .update status {
     background: #008000;
     border: 1px solid #008000;
     color: #fff;

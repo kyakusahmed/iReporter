@@ -165,11 +165,11 @@ border: 2px solid #778899;
 .topnav input[type=text] {
     border: 1px solid #ccc; 
 }
-.orders, .orders2, .orders .button {
+.redflags, .redflag2, .redflags .button {
     display: inline;
 
 }
-.orders{
+.redflags{
 float: none;
 margin: 0px;
 width: auto;
