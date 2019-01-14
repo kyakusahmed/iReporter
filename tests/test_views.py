@@ -107,7 +107,7 @@ class RedflagTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('redflags'), list)
    
-    def test_create_redflag(self):
+    def test_add_redflag(self):
         """test add new redflag."""
         data_test = {
             "comment": "abehtjtuk",
@@ -142,7 +142,7 @@ class RedflagTest(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
 
-    def test_create_redflag_comment_is_required(self):
+    def test_add_redflag_comment_is_required(self):
         data_test = {
             "comment": "",
             "createdby": 1,
@@ -155,7 +155,7 @@ class RedflagTest(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
 
-    def test_create_redflag_type_is_required(self):
+    def test_add_redflag_type_is_required(self):
         data_test = {
             "comment": "hey boss, u dont have to give money to do for u this",
             "createdby": 1,
