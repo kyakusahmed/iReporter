@@ -38,7 +38,7 @@ class Validation:
             elif not location[0] or not location[1]:
                 return "either latitude or longtude field is missing"
             elif not (lat >= -90 and lat <= 90):
-                return 'latitude is out of range'
+                return 'latitude out of range is'
             elif not (lng >= -180 and lng <= 180):
                 return 'longtude is out of range'
         except ValueError:

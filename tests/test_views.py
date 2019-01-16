@@ -108,9 +108,45 @@ class RedflagTest(unittest.TestCase):
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 201)
         self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('data'), list)
-        self.assertEqual(json.loads(response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
+        self.assertEqual(
+            json.loads(
+                response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
 
+    def test_add_redflag_with_invalid_coordinates(self):
+        """test add new redflag with invalid coordinates."""
+        data_test = {
+            "createdby": 1,
+            "location": "wsivwe,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)
+        # self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('data'), list)
+        # self.assertEqual(json.loads(response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
 
+    def test_add_redflag_with_latitude_out_of_range(self):
+        """test add new redflag."""
+        data_test = {
+            "createdby": 1,
+            "location": "91,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)
+
+    def test_add_redflag_with_longtude_out_of_range(self):
+        """test add new redflag."""
+        data_test = {
+            "createdby": 1,
+            "location": "90,181",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)
+    
     def test_opening_route(self):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
