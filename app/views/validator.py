@@ -18,7 +18,7 @@ class Validation:
         return None
 
     def input_data_validation(self, incidents):
-        """Search for x and check if input is an empty string."""
+        """Search for x and check if data is an empty string."""
         for x in incidents:
             data = request.get_json()
             if not data[x]:
@@ -26,8 +26,8 @@ class Validation:
                 return self.message
 
     def validate_location(self, location):
-        input = request.get_json()
-        location = input['location'].split(',')
+        data = request.get_json()
+        location = data['location'].split(',')
 
         try:
             lat = float(location[0])
@@ -42,7 +42,5 @@ class Validation:
             elif not (lng >= -180 and lng <= 180):
                 return 'longtude is out of range'
         except ValueError:
-            return "pliz enter numbers and not a letter"            
-                
-
-    
+            return "pliz enter numbers and not a letter"
+            

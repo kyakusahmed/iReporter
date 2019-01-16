@@ -61,9 +61,7 @@ class RedflagTest(unittest.TestCase):
             "comment":"AVNNDICV"
             }
         self.app.post('/api/v1/redflags', json=test_data)
-        body = {
-            "comment": "me and you"
-            }
+        body = {"comment": "me and you"}
         response = self.app.patch('/api/v1/redflags/2/edit', json=body)
         self.assertEqual(response.status_code, 200)
 

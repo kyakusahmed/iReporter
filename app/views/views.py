@@ -64,7 +64,8 @@ def add_redflag():
     print(validate_location)
     if validate_location:
         return jsonify({
-            "location_validation": validate_location, "status": 400}), 400
+            "location_validation": validate_location, "status": 400
+            }), 400
 
     incident = record.add_redflag(
         data['comment'],
