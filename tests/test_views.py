@@ -11,12 +11,10 @@ class RedflagTest(unittest.TestCase):
 
     def test_delete_redflag(self):
         test = {
-            "comment": "hey boss, u dont have to give money to do for u this",
             "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "type": "redflag",
-            "video": "baiowqgb"
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
         }
         self.app.post('/api/v1/redflags', json=test)
         response = self.app.delete('/api/v1/redflags/1/delete')
@@ -26,7 +24,7 @@ class RedflagTest(unittest.TestCase):
 
     def test_delete_redflag_not_found(self):
         response = self.app.delete('/api/v1/redflags/1000/delete')
-        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.status_code, 404)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "unable to find redflag")
 
 
@@ -57,13 +55,10 @@ class RedflagTest(unittest.TestCase):
 
     def test_edit_redflag_flag(self):
         test_data = {
-            "comment": "wgrhtyj5",
             "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "status": "pending",
-            "type": "redflag",
-            "video": "video"
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
             }
         self.app.post('/api/v1/redflags', json=test_data)
         body = {
@@ -83,13 +78,10 @@ class RedflagTest(unittest.TestCase):
 
     def test_get_specific_redflag(self):
         test_data = {
-            "comment": "comment",
             "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "status": "pending",
-            "type": "redflag",
-            "video": "video"
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment": "vkA"
             }
         self.app.post('/api/v1/redflags', json=test_data)
         response = self.app.get('/api/v1/redflags/2/one')
@@ -110,12 +102,10 @@ class RedflagTest(unittest.TestCase):
     def test_add_redflag(self):
         """test add new redflag."""
         data_test = {
-            "comment": "abehtjtuk",
             "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "type": "redflag",
-            "video": "baiowqgb"
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"AVNNDICV"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 201)
@@ -127,7 +117,6 @@ class RedflagTest(unittest.TestCase):
         response = self.app.get('/')
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.data.decode('utf-8')).get('message'), "welcome to iReporter.")
-
         
     def test_add_redflag_location_is_required(self):
         data_test = {
@@ -144,25 +133,10 @@ class RedflagTest(unittest.TestCase):
 
     def test_add_redflag_comment_is_required(self):
         data_test = {
-            "comment": "",
             "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "type": "redflag",
-            "video": "baiowqgb"
-        }
-        response = self.app.post('/api/v1/redflags', json=data_test)
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "missing field")
-
-    def test_add_redflag_type_is_required(self):
-        data_test = {
-            "comment": "hey boss, u dont have to give money to do for u this",
-            "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "type": "",
-            "video": "baiowqgb"
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment":""
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
@@ -172,30 +146,14 @@ class RedflagTest(unittest.TestCase):
     def test_data_type_entered_is_not_integer(self):
         """test add new redflag."""
         data_test = {
-            "comment": "abehtjtuk",
-            "createdby": "",
-            "image": "image",
-            "location": "location",
-            "type": "redflag",
-            "video": "baiowqgb"
+            "createdby": "vds",
+            "location": "90,112",
+            "fromMyCamera": "dasfrg",
+            "comment":"cfjisldf"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(
             response.data.decode('utf-8')).get("data_type_error"),
-            "Sorry invalid literal for int() with base 10: ''. please enter an integer value "
+            "Sorry invalid literal for int() with base 10: 'vds'. please enter an integer value vds"
             )
-
-
-    def test_record_type_doesnot_exist(self):
-        test_data = {
-            "comment": "abehtjtuk",
-            "createdby": 1,
-            "image": "image",
-            "location": "location",
-            "type": "aefbtnw",
-            "video": "baiowqgb"
-        }
-        response = self.app.post('/api/v1/redflags', json=test_data)
-        self.assertEqual(response.status_code, 400)
-        self.assertEqual(json.loads(response.data.decode('utf-8')).get('error'), "record_type aefbtnw doesnot exist")

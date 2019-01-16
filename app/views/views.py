@@ -47,8 +47,7 @@ def add_redflag():
     """add redflag to self.redflags"""
     input_validation = validation.input_data_validation([
         "comment",
-        "location",
-        "type"
+        "location"
         ])
     if input_validation:
         return jsonify({"status": 400, "error": input_validation[0]}), 400
@@ -60,21 +59,19 @@ def add_redflag():
             "data_type_error": validate_datatype,
             "status": 400
             }), 400
-    record_type = data['type']
-    record_types = ['redflag', 'interventions']
-    if record_type not in record_types:
+
+    validate_location = validation.validate_location(data['location'])
+    print(validate_location)
+    if validate_location:
         return jsonify({
-            "error": "record_type {} doesnot exist".format(record_type),
-            "status": 400
-            }), 400
+            "location_validation": validate_location, "status": 400}), 400
 
     incident = record.add_redflag(
+        data['comment'],
         data["createdby"],
-        data['type'],
-        data["location"],
-        data['image'],
-        data['video'],
-        data['comment'])
+        data['fromMyCamera'],
+        data["location"]
+        )
     red_flag = [{
         "redflag_id": incident['redflag_id'],
         "message": "redflag added successfully"
@@ -87,7 +84,7 @@ def delete_redflag(redflag_id):
     """remove item from self.redflags"""
     search = record.search_redflag(redflag_id)
     if not search:
-        return jsonify({"error": "unable to find redflag", "status": 400}), 400
+        return jsonify({"error": "unable to find redflag", "status": 404}), 404
     delete = record.delete_redflag(redflag_id)
     if delete:
         return jsonify({
