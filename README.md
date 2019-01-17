@@ -64,24 +64,12 @@ $ python run.py
 
 | tasks               |    URLS                |  METHOD  |         PARAMS                   |   OUTPUT                          |
 | ------------------- | -----------------------|----------|----------------------------------|-----------------------------------|
-| get all redflags    |  api/v1/redflags       |  GET     |   ---------------------------    | {'redflag': [ ], 'status': 200 }  |
-|                     |                        |          |                                  |                                   |
-|                     |                        |          |                                  |                                   | 
-| get a specific      |  api/v1/redflags/      |  GET     |   ---------------------------    | {'redflag': [ ], 'status': 200}   |
-| redflag             |  <int:redflag_id>      |          |                                  |                                   |
-|                     |                        |          |                                  |                                   |
-| user creates redflag|  api/v1/redflags       |  POST    |   comment, createdBy, image,     | {'data': [{'message':             |
-|                     |                        |          |   location, type, video          |   'redflag added successfully',   |
-|	              |		               |	  |                                  |     'redflag_id': redflag_id }],  |
-|                     |                        |          |                                  | 'status': 201 }                   |
-|                     |                        |          |                                  |                                   |
-|                     |                        |          |                                  |                                   |
-|user updates redflag |   api/v1/redflags/     |  PATCH   |   comment                        |{'redflag': [{'message': 'comment  |
-|                     | <int:redflag_id>/edit  |          |                                  | updated', 'redflag': redflag_id}],|
-|                     |                        |          |                                  |            'status': 200 }        |
-|                     |                        |          |                                  |                                   |
-| user delete redflag/|    api/v1/redflag/     |  DELETE  |    --------------------------    | {"message": "redflag deleted is   |
-| intervention        |<int:redflag_id>/delete |          |                                  |       successful", "status": 200} |
+|get all redflag|api/v1/redflags|GET||{'redflag': [ ], 'status': 200 }|
+|get a specific redflag|  api/v1/redflags/ <int:redflag_id>|GET|| {'redflag': [ ], 'status': 200}|
+| user creates redflag|api/v1/redflags|POST|comment, createdBy,location,fromMyCamera| {'data': [{'message':'redflag added successfully', 'redflag_id': redflag_id }],'status': 201 }|
+|user updates redflag|api/v1/redflags/<int:redflag_id>/edit|PATCH|comment|{'redflag': [{'message': 'comment updated', 'redflag': redflag_id}], 'status': 200 }|
+| user delete redflag/ intervention|api/v1/redflag/<int:redflag_id>/delete|DELETE|| {"message": "redflag deleted issuccessful", "status": 200}|
+
 
 
 ### How to run the Tests
