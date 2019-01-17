@@ -1,52 +1,49 @@
 * {box-sizing: border-box;}
 body {
-background-color:  linen;
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-width: 100%;
-min-height: 100vh;
+  background-color:  #ecf0f1;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
 }
 .topnav {
-overflow: hidden;
-background-color: lightslategray ;
-color: green;
-padding: 0 100px;
-margin: 10px;
-border-radius: 0px;
+  overflow: hidden;
+  background-color: #d35400;
+  color: white;
+  padding: 0 100px;
+  margin: 10px;
 }
 .topnav h1{
-float: left;
-padding: 10px;
-color:  #ffffff;
-font-size: 20px;
-background-origin: padding-box;
-background-color: lightslategray;
-border: 2px solid linen; 
+    float: left;
+    padding: 10px;
+    color:  #ffffff;
+    font-size: 20px;
+    background-origin: padding-box;
+    background-color: lightslategray;
+    border: 2px solid linen; 
 }
 .topnav a {
-float: right;
-display: block;
-color: white;
-text-align: center;
-padding:  20px;
-text-decoration: none;
-font-size: 16px;
-margin: 8px 5px 0px 0px;
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding:  20px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 8px;
 }
-
 .topnav a:hover {
-background-color: linen;
-color: lightslategray;
+  background-color: lightslategray;
+  color: #ffffff;
 }
 .topnav a.active {
-background-color: linen;
-color: lightslategray;
+  background-color: lightslategray;
+  color: #ffffff;
+  border-radius: 5px;
 }
-
 .content {
 margin: 0px 100px 10px 100PX;
 min-height: 80vh;
-background-color: #ffffff;
 padding: 45px;
 border-left: 2px solid lightslategray;
 border-right: 2px solid lightslategray;
@@ -57,11 +54,9 @@ text-align: center;
 color: white;
 }
 .cases .case {
-border-bottom: 1px double grey;
 padding: 10px;
 margin-bottom: 10px;
-background-color:  lightslategray;
-color: linen;
+color: grey;
 text-align: center;
 }
 
@@ -77,26 +72,17 @@ margin-bottom: 5px;
 font-size: 14px;
 }
 
-.content1 .title .price {
-background: #008000;
-color: #fff;
-border-radius: 5px;
-padding: 2px;
-font-size: 12px;
-}
-
-
 .area .on button {
-background: #008000;
-border: 1px solid #008000;
+background: #d35400;
+border: 1px solid #d35400;
 color: #fff;
 padding: 10px;
 margin: -20px 0 0 -5px;
 
 }
 
-.order-item .date {
-color: green;
+.redflag-item .date {
+color: #d35400;
 font-size: 12px;
 }
 
@@ -118,10 +104,10 @@ border: 2px solid #778899;
 .content {
   margin: 0px 0px 10px 0px;
   min-height: 80vh;
-  background-color: #ffffff;
   padding: 45px;
   border-left: 2px solid lightslategray;
   border-right: 2px solid lightslategray;
+  width: auto; 
   }
 .topnav a, .topnav input[type=text], .topnav .search-container button {
   
@@ -134,17 +120,6 @@ border: 2px solid #778899;
 .topnav input[type=text] {
   border: 1px solid #ccc; 
 }
-.orders, .orders2, .orders .button {
-  display: inline;
-
-}
-.orders{
-float: none;
-margin: 0px;
-width: auto;
-padding: 10px;
-}
-
 }
 
 .button {
@@ -191,7 +166,7 @@ padding: 10px;
 .topnav .search-container {
 float: none;
 }
-.topnav a, .topnav input[type=text], .topnav .search-container button {
+.topnav a, .topnav input[type=text], .topnav{
 display: block;
 text-align: left;
 width: 100%;
@@ -228,11 +203,7 @@ width: 100%;
 background-color: #EEEEEE;
 }
 .content .cases form {
-background-color: #008000;
 padding: 10px;
-background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("../images/no.jpg");
-
-background-size: contain;
 }
 .on{
 display: inline-flex;
@@ -251,14 +222,23 @@ margin: 0 0 0 10px;
 .area{
 display: flex;
 padding: 5px;
+width: 392px;
+height: 300px;
+margin: auto;
 }
 .add .button{
-background-color: green;
+background-color: #d35400;
 color: linen;
 display: inline;
-} 
 
-form .add  {
+}
+
+form .mine{
+  margin-left: 350px;
+  padding: 30px 0 0 0;
+}
+
+form .mine .add  { 
 margin-top: auto;
 margin-left: 10px;
 padding: 5px;
@@ -276,6 +256,16 @@ width: auto;
 
 }
 
+form .field{
+  margin-left: 306px;
+  color: grey;
+}
+form .field .field{
+  width: 200px;
+  padding: 10px;
+  margin: 20px;
+}
+
 .image {
 flex: 1;
 }
@@ -286,15 +276,8 @@ margin-bottom: 5px;
 font-size: 14px;
 }
 
-.content1 .title .price {
-background: #008000;
-color: #fff;
-border-radius: 5px;
-padding: 2px;
-font-size: 12px;
-}
 .food .content1 .desc {
-color: #ffffff;
+color: lightslategray;
 }
 
 .food .date {
@@ -324,9 +307,10 @@ margin:  10px auto;
 
 .add-food .submit-button .button {
 padding: 10px;
-background: #008000;
+background: #d35400;
 color: #fff;
 border: none;
+margin-left: 200px;
 }
 .on .button{
   padding: 5px;
@@ -334,7 +318,7 @@ border: none;
   font-weight: bold;
   font-size: 12px;
   cursor: pointer;
-  background: green;
+  background: #d35400;
 }
 .footer{
   display: block;
@@ -392,4 +376,3 @@ border: none;
   border: 1px solid #0000ff;
   color: #faf0e6;
 }
-

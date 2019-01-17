@@ -1,6 +1,6 @@
 * {box-sizing: border-box;}
 body {
-  background-color:  linen;
+  background-color:  #ecf0f1;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   width: 100%;
@@ -8,11 +8,10 @@ body {
 }
 .topnav {
   overflow: hidden;
-  background-color: lightslategray ;
-  color: green;
+  background-color: #d35400;
+  color: white;
   padding: 0 100px;
   margin: 10px;
-  border-radius: 5px;
 }
 .topnav h1{
     float: left;
@@ -38,13 +37,18 @@ body {
   color: #ffffff;
 }
 .topnav a.active {
-  background-color: linen;
-  color: lightslategray;
+  background-color: lightslategray;
+  color: #ffffff;
   border-radius: 5px;
 }
-.main-content{
-  min-height: 30vh;
+.content{
+  margin: 0px 100px 10px 100PX;
+  min-height: 80vh; 
+  padding: 45px; 
+  border-left: 2px solid lightslategray;
+  border-right: 2px solid lightslategray;
 }
+
 .heading{
   color: green;
 }
@@ -62,7 +66,7 @@ body {
   text-align: center;
   margin-top: -40px;
   border-radius: 5px;
-  color: lightslategray;
+  color: grey;
   font-weight: 100; 
 }
 .login-form input{
@@ -70,7 +74,7 @@ body {
   outline: 1;
   background: #f2f2f2;
   width: 100%;
-  border: 1px solid #778899;
+  border: 1px solid #d35400;
   margin: 5px;
   padding: 15px;
   box-sizing: border-box;
@@ -81,8 +85,8 @@ body {
   border: 1px solid white;
 }
 
-.form p{
-  color: #778899;
+.form p a{
+  color: orange;
   font-family: sans-serif;
 }
 .login-form .button{
@@ -91,13 +95,13 @@ body {
   outline: 0;
   width: 100%;
   padding: 10px;
-  color: linen;
+  color: white;
   font-size: 15PX;
   cursor: pointer;
   border: 1px solid lightslategray;
   border-radius: 5px;
   margin-top: 10px;
-  background-color: lightslategray;
+  background-color: #d35400;
 }
 .form .button:hover,.form button:active{
   background-color: lightgray;
@@ -105,12 +109,21 @@ body {
 }
 .form .message{
   margin: 15px;
-  color: lightslategray;
+  color: grey;
 }
-@media screen and (max-width: 620px) {
+@media screen and (max-width: 1000px) {
   .login-page, .SignUp, .input[type=submit] {
     width: auto;
     margin-top: 0;
+  }
+  .content {
+    margin: 0px 0px 10px 0px;
+    min-height: 80vh;
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/mb.jpg');
+    padding: 45px;
+    border-left: 2px solid lightslategray;
+    border-right: 2px solid lightslategray;
+    width: auto; 
   }
 }
 @media only screen and (max-width: 300px) {
@@ -171,4 +184,3 @@ body {
   height: 80px;
   width: 100px;
 }
-

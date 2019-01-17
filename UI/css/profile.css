@@ -1,52 +1,49 @@
 * {box-sizing: border-box;}
 body {
-background-color:  linen;
-margin: 0;
-font-family: Arial, Helvetica, sans-serif;
-width: 100%;
-min-height: 100vh;
+  background-color:  #ecf0f1;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
 }
 .topnav {
-overflow: hidden;
-background-color: lightslategray ;
-color: green;
-padding: 0 100px;
-margin: 10px;
-border-radius: 0px;
+  overflow: hidden;
+  background-color: #d35400;
+  color: white;
+  padding: 0 100px;
+  margin: 10px;
 }
 .topnav h1{
-float: left;
-padding: 10px;
-color:  #ffffff;
-font-size: 20px;
-background-origin: padding-box;
-background-color: lightslategray;
-border: 2px solid linen; 
+    float: left;
+    padding: 10px;
+    color:  #ffffff;
+    font-size: 20px;
+    background-origin: padding-box;
+    background-color: lightslategray;
+    border: 2px solid linen; 
 }
 .topnav a {
-float: right;
-display: block;
-color: white;
-text-align: center;
-padding:  20px;
-text-decoration: none;
-font-size: 16px;
-margin: 8px 5px 0px 0px;
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding:  20px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 8px;
 }
-
 .topnav a:hover {
-background-color: linen;
-color: lightslategray;
+  background-color: lightslategray;
+  color: #ffffff;
 }
 .topnav a.active {
-background-color: linen;
-color: lightslategray;
+  background-color: lightslategray;
+  color: #ffffff;
+  border-radius: 5px;
 }
-
 .content {
 margin: 0px 100px 10px 100PX;
 min-height: 80vh;
-background-color: #ffffff;
 padding: 45px;
 border-left: 2px solid lightslategray;
 border-right: 2px solid lightslategray;
@@ -57,17 +54,16 @@ text-align: center;
 color: white;
 }
 .cases .case {
-border-bottom: 1px double grey;
 padding: 10px;
 margin-bottom: 10px;
-background-color:  lightslategray;
-color: linen;
+color: #808080;
 text-align: center;
+font-size: 25px;
 }
 
 .open-button {
 background-color: #555;
-color: white;
+color: grey;
 padding: 16px 20px;
 border: none;
 cursor: pointer;
@@ -132,6 +128,7 @@ flex-direction: row;
 flex-wrap: nowrap;
 justify-content: flex-start;
 border: 2px solid #778899;
+padding: 10px;
 
 }
 
@@ -147,7 +144,6 @@ border: 2px solid #778899;
 .content {
     margin: 0px 4px 10px 0px;
     min-height: 80vh;
-    background-color: #ffffff;
     padding: 45px;
     border-left: 2px solid lightslategray;
     border-right: 2px solid lightslategray;
@@ -178,6 +174,20 @@ padding: 10px;
 }
 .content1 .description{
     flex: 3;
-    color: black;
+    color: grey;
     padding: 10px;
+    font-size: 22px;
+}
+.mod{
+    display: inline-flex;
+    border: 2px solid lightslategray;
+    color: white;
+    padding: 5px 20px;
+    margin: auto;
+    font-size: 18px;
+    background-color: lightslategray
+}
+
+.stat{
+    padding: 10px 55px;
 }
