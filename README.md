@@ -62,13 +62,13 @@ Run the app
 $ python run.py
 ```
 
-| tasks               |    URLS                |  METHOD  |         PARAMS                   |   OUTPUT                          |
-| ------------------- | -----------------------|----------|----------------------------------|-----------------------------------|
-|get all redflag|api/v1/redflags|GET||{'redflag': [ ], 'status': 200 }|
-|get a specific redflag|  api/v1/redflags/ <int:redflag_id>|GET|| {'redflag': [ ], 'status': 200}|
-| user creates redflag|api/v1/redflags|POST|comment, createdBy,location,fromMyCamera| {'data': [{'message':'redflag added successfully', 'redflag_id': redflag_id }],'status': 201 }|
-|user updates redflag|api/v1/redflags/<int:redflag_id>/edit|PATCH|comment|{'redflag': [{'message': 'comment updated', 'redflag': redflag_id}], 'status': 200 }|
-| user delete redflag/ intervention|api/v1/redflag/<int:redflag_id>/delete|DELETE|| {"message": "redflag deleted issuccessful", "status": 200}|
+| tasks               |    URLS                |  METHOD  |         PARAMS                   |
+| ------------------- | -----------------------|----------|----------------------------------|
+|get all redflag|api/v1/redflags|GET||
+|get a specific redflag|  api/v1/redflags/ <int:redflag_id>|GET||
+| user creates redflag|api/v1/redflags|POST|comment, createdBy,location,fromMyCamera|
+|user updates redflag|api/v1/redflags/<int:redflag_id>/edit|PATCH|comment|
+| user delete redflag/ intervention|api/v1/redflag/<int:redflag_id>/delete|DELETE||
 
 
 
