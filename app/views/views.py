@@ -3,6 +3,7 @@ from flask import Flask, jsonify, request
 from app.models.redflag import Redflag
 from app.views.validator import Validation
 
+
 app = Flask(__name__)
 record = Redflag()
 validation = Validation()
@@ -75,15 +76,15 @@ def add_redflag():
 
     validate_location = validation.validate_location(data['location'])
     if validate_location:
-        return jsonify({
-            "location_validation": validate_location, "status": 400
+        return jsonify({"location_validation": validate_location, "status": 400
             }), 400
 
     incident_type = data['type']
     incident_types = ['redflag', 'intervention']
     if incident_type not in incident_types:
         return jsonify({
-            "status": 400, "error": " incident_type {} doesnot exist".format(incident_type)}), 400        
+            "status": 400, "error": " incident_type {} doesnot exist".format(incident_type)
+            }), 400        
 
     incident = record.add_redflag(
         data['comment'],
