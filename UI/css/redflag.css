@@ -44,7 +44,6 @@ body {
   .content {
   margin: 0px 100px 10px 100PX;
   min-height: 80vh;
-  background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../images/mb.jpg');
   padding: 45px;
   border-left: 2px solid lightslategray;
   border-right: 2px solid lightslategray;
@@ -65,7 +64,6 @@ body {
   
   .content1 {
   flex: 3;
-  background-color:linen;
   padding: 10px;
   }
   .content1 .title {
@@ -74,14 +72,7 @@ body {
   margin-bottom: 5px;
   font-size: 14px;
   }
-  
-  .content1 .title .price {
-  background: #008000;
-  color: #fff;
-  border-radius: 5px;
-  padding: 2px;
-  font-size: 12px;
-  }
+ 
   .area .on button {
   background: #008000;
   border: 1px solid #008000;
