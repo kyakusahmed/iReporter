@@ -64,11 +64,11 @@ $ python run.py
 
 | tasks               |    URLS                |  METHOD  |         PARAMS                   |
 | ------------------- | -----------------------|----------|----------------------------------|
-|get all redflag|http://127.0.0.1:8080/api/v1/redflags|GET||
-|get a specific redflag|http://127.0.0.1:8080/api/v1/redflags/ <int:redflag_id>|GET||
-| user creates redflag|http://127.0.0.1:8080/api/v1/redflags|POST|comment, createdBy,location,fromMyCamera|
+|get all redflag|http://127.0.0.1:8080/api/v1/redflags|GET|None|
+|get a specific redflag|http://127.0.0.1:8080/api/v1/redflags/ <int:redflag_id>|GET|None|
+| user creates redflag|http://127.0.0.1:8080/api/v1/redflags|POST|comment, createdBy,location,image,type,video|
 |user updates redflag|http://127.0.0.1:8080/api/v1/redflags/<int:redflag_id>/edit|PATCH|comment|
-| user delete redflag/intervention|http://127.0.0.1:8080/api/v1/redflag/<int:redflag_id>/delete|DELETE||
+| user delete redflag/intervention|http://127.0.0.1:8080/api/v1/redflag/<int:redflag_id>/delete|DELETE|None|
 
 
 
