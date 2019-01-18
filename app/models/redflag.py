@@ -44,17 +44,18 @@ class Redflag:
         """get list of all red-flags."""
         return self.redflags
 
-    def add_redflag(self, comment, createdby, fromMyCamera, location):
+    def add_redflag(self, comment, createdby, image, location, type, video):
         """create new red-flag."""
         redflag = {
             "comment": comment,
             "createdby": createdby,
             "createdOn": str(datetime.now()),
-            "fromMyCamera": fromMyCamera,
+            "image": image,
             "location": location,
             "redflag_id": len(self.redflags)+1,
             "status": "pending",
-            "type": "redflag",
+            "type": type,
+            "video": video
         }
         self.redflags.append(redflag)
         return redflag

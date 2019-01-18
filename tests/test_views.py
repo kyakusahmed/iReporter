@@ -12,9 +12,11 @@ class RedflagTest(unittest.TestCase):
     def test_delete_redflag(self):
         test = {
             "createdby": 1,
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "location": "90,180",
+            "image": "das.png",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": "ahmed.mp4"
         }
         self.app.post('/api/v1/redflags', json=test)
         response = self.app.delete('/api/v1/redflags/1/delete')
@@ -56,9 +58,11 @@ class RedflagTest(unittest.TestCase):
     def test_edit_redflag_flag(self):
         test_data = {
             "createdby": 1,
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": "ahmed.mp4"
             }
         self.app.post('/api/v1/redflags', json=test_data)
         body = {"comment": "me and you"}
@@ -77,13 +81,16 @@ class RedflagTest(unittest.TestCase):
     def test_get_specific_redflag(self):
         test_data = {
             "createdby": 1,
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment": "vkA"
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": "ahmed.mp4"
             }
         self.app.post('/api/v1/redflags', json=test_data)
         response = self.app.get('/api/v1/redflags/2/one')
         self.assertEqual(response.status_code, 200)
+        self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('redflag'), list)
 
     def test_get_all_redtags(self):
         """Test get all redflags."""
@@ -101,9 +108,11 @@ class RedflagTest(unittest.TestCase):
         """test add new redflag."""
         data_test = {
             "createdby": 1,
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": "ahmed.mp4"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 201)
@@ -112,26 +121,57 @@ class RedflagTest(unittest.TestCase):
             json.loads(
                 response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
 
-    def test_add_redflag_with_invalid_coordinates(self):
-        """test add new redflag with invalid coordinates."""
+    def test_add_redflag_incident_type_doesnot_exist(self):
+        """test add new redflag."""
         data_test = {
             "createdby": 1,
-            "location": "wsivwe,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redfl",
+            "video": "ahmed.mp4"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        print(response)
+        self.assertEqual(response.status_code, 400)
+       
+        
+    def test_add_redflag_latitude_longtude_is_missing(self):
+        """test add new redflag."""
+        data_test = {
+            "createdby": 1,
+            "location": "90,",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redfl",
+            "video": "ahmed.mp4"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
-        # self.assertIsInstance(json.loads(response.data.decode('utf-8')).get('data'), list)
-        # self.assertEqual(json.loads(response.data.decode('utf-8')).get('data')[0]['message'], "redflag added successfully")
 
+    def test_add_redflag_location_is_not_numbers(self):
+        """test add new redflag."""
+        data_test = {
+            "createdby": 1,
+            "location": "wevino",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redfl",
+            "video": "ahmed.mp4"
+        }
+        response = self.app.post('/api/v1/redflags', json=data_test)
+        self.assertEqual(response.status_code, 400)               
+
+   
     def test_add_redflag_with_latitude_out_of_range(self):
         """test add new redflag."""
         data_test = {
             "createdby": 1,
-            "location": "91,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "location": "95,181",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": ""
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
@@ -141,8 +181,10 @@ class RedflagTest(unittest.TestCase):
         data_test = {
             "createdby": 1,
             "location": "90,181",
-            "fromMyCamera": "dasfrg",
-            "comment":"AVNNDICV"
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": ""
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
@@ -167,10 +209,12 @@ class RedflagTest(unittest.TestCase):
 
     def test_add_redflag_comment_is_required(self):
         data_test = {
-            "createdby": 1,
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment":""
+       "createdby": "vuyw",
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"",
+            "type": "redflag",
+            "video": "ahmd.mp4"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
@@ -180,14 +224,15 @@ class RedflagTest(unittest.TestCase):
     def test_data_type_entered_is_not_integer(self):
         """test add new redflag."""
         data_test = {
-            "createdby": "vds",
-            "location": "90,112",
-            "fromMyCamera": "dasfrg",
-            "comment":"cfjisldf"
+            "createdby": "vuyw",
+            "location": "90,180",
+            "image": "dasfrg",
+            "comment":"rtyb6",
+            "type": "redflag",
+            "video": "ahmd.mp4"
         }
         response = self.app.post('/api/v1/redflags', json=data_test)
         self.assertEqual(response.status_code, 400)
         self.assertEqual(json.loads(
-            response.data.decode('utf-8')).get("data_type_error"),
-            "Sorry invalid literal for int() with base 10: 'vds'. please enter an integer value vds"
+            response.data.decode('utf-8')).get("data_type_error"), "please enter an integer"
             )
