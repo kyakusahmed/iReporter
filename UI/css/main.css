@@ -1,0 +1,378 @@
+* {box-sizing: border-box;}
+body {
+  background-color:  #ecf0f1;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  min-height: 100vh;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #d35400;
+  color: white;
+  padding: 0 100px;
+  margin: 10px;
+}
+.topnav h1{
+    float: left;
+    padding: 10px;
+    color:  #ffffff;
+    font-size: 20px;
+    background-origin: padding-box;
+    background-color: lightslategray;
+    border: 2px solid linen; 
+}
+.topnav a {
+  float: right;
+  display: block;
+  color: white;
+  text-align: center;
+  padding:  20px;
+  text-decoration: none;
+  font-size: 16px;
+  margin-top: 8px;
+}
+.topnav a:hover {
+  background-color: lightslategray;
+  color: #ffffff;
+}
+.topnav a.active {
+  background-color: lightslategray;
+  color: #ffffff;
+  border-radius: 5px;
+}
+.content {
+margin: 0px 100px 10px 100PX;
+min-height: 80vh;
+padding: 45px;
+border-left: 2px solid lightslategray;
+border-right: 2px solid lightslategray;
+}
+
+.casess h4, .casess h6 {
+text-align: center;
+color: white;
+}
+.cases .case {
+padding: 10px;
+margin-bottom: 10px;
+color: grey;
+text-align: center;
+}
+
+.content1 {
+flex: 3;
+background-color:linen;
+padding: 10px;
+}
+.content1 .title {
+font-weight: bold;
+color: green;
+margin-bottom: 5px;
+font-size: 14px;
+}
+
+.area .on button {
+background: #d35400;
+border: 1px solid #d35400;
+color: #fff;
+padding: 10px;
+margin: -20px 0 0 -5px;
+
+}
+
+.redflag-item .date {
+color: #d35400;
+font-size: 12px;
+}
+
+.content2 {
+margin: 10px 0;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-start;
+border: 2px solid #778899;
+
+}
+
+@media screen and (max-width: 620px) {
+.topnav .search-container {
+  float: none;
+}
+
+.content {
+  margin: 0px 0px 10px 0px;
+  min-height: 80vh;
+  padding: 45px;
+  border-left: 2px solid lightslategray;
+  border-right: 2px solid lightslategray;
+  width: auto; 
+  }
+.topnav a, .topnav input[type=text], .topnav .search-container button {
+  
+  display: block;
+  text-align: left;
+  width: 100%;
+  margin: 0;
+  padding: 14px;
+}
+.topnav input[type=text] {
+  border: 1px solid #ccc; 
+}
+}
+
+.button {
+font: bold 11px Arial;
+text-decoration: none;
+background-color: #EEEEEE;
+color: #333333;
+padding: 2px 6px 2px 6px;
+border-top: 1px solid #CCCCCC;
+border-right: 1px solid #333333;
+border-bottom: 1px solid #333333;
+border-left: 1px solid #CCCCCC;
+
+}
+@media screen and (max-width: 620px) {
+.login-page, .SignUp, .input[type=submit] {
+  width: auto;
+  margin-top: 0;
+}
+}
+@media only screen and (max-width: 400px) {
+.text {
+  font-size: 11px;
+
+}
+.content{
+  margin: 0 0 0 0;
+}
+}
+.footer {
+height: 60px;
+position: relative;
+left: 0;
+bottom: 0;
+width: 100%;
+background-color: #778899;
+color: #faf0e6;
+text-align: center;
+padding: 10px;
+
+}
+
+@media screen and (max-width: 1200px) {
+.topnav .search-container {
+float: none;
+}
+.topnav a, .topnav input[type=text], .topnav{
+display: block;
+text-align: left;
+width: 100%;
+margin: 10px;
+padding: 14px;
+}
+.topnav input[type=text] {
+border: 1px solid #ccc;  
+}
+.content2{
+  display: block;
+}
+
+}
+
+.redflag-item {
+margin: 10px 0;
+display: flex;
+flex-direction: row;
+flex-wrap: nowrap;
+justify-content: flex-start;
+border-bottom: 3px dotted #ffffff;
+}
+
+.redflag-image {
+flex: 1;
+padding: 10px ;
+}
+
+.redflag-image img {
+margin: 0;
+height: 100%;
+width: 100%;
+background-color: #EEEEEE;
+}
+.content .cases form {
+padding: 10px;
+}
+.on{
+display: inline-flex;
+padding-top: 16px;
+padding-left: 1px;
+margin: 4px 0 0 4px;
+}
+.area label{
+color: linen;
+font-size: 20px;
+padding-bottom: 10px;
+}
+.area textarea{
+margin: 0 0 0 10px;
+}
+.area{
+display: flex;
+padding: 5px;
+width: 392px;
+height: 300px;
+margin: auto;
+}
+.add .button{
+background-color: #d35400;
+color: linen;
+display: inline;
+
+}
+
+form .mine{
+  margin-left: 350px;
+  padding: 30px 0 0 0;
+}
+
+form .mine .add  { 
+margin-top: auto;
+margin-left: 10px;
+padding: 5px;
+color: linen;
+font-weight: bold;
+font-size: 12px;
+cursor: pointer;
+display: inline-block;
+}
+.flex-container{
+display: flex;
+justify-content: center;
+margin-top: 80px;
+width: auto;
+
+}
+
+form .field{
+  margin-left: 306px;
+  color: grey;
+}
+form .field .field{
+  width: 200px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.image {
+flex: 1;
+}
+.content1 .title {
+font-weight: bold;
+color: #ffffff;
+margin-bottom: 5px;
+font-size: 14px;
+}
+
+.food .content1 .desc {
+color: lightslategray;
+}
+
+.food .date {
+color: #ffffff;
+font-size: 12px;
+}
+
+.add-food {
+background-color:#ccc;
+padding: 10px;
+}
+.add-food .input-field {
+margin-top: 5px;
+}
+.add-food .input-field label {
+display: block;
+}
+.add-food .input-field input, .add-food .input-field textarea {
+border: 1px solid black;
+padding: 6px;
+width: 100%;
+}
+
+.add-food .submit-button {
+margin:  10px auto;
+}
+
+.add-food .submit-button .button {
+padding: 10px;
+background: #d35400;
+color: #fff;
+border: none;
+margin-left: 200px;
+}
+.on .button{
+  padding: 5px;
+  color: grey;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: #d35400;
+}
+.footer{
+  display: block;
+  
+}
+.footer .location a{
+  color: #ffffff;
+  padding: 5px;
+}
+
+.redflag-button{
+  display: inline-flex;
+  padding-top: 16px;
+  padding-left: 1px;
+  margin: 4px 0 0 4px;
+  cursor: pointer;
+  }
+
+.redflag-item .redflag-button .button {
+  display: inline-block;
+  margin-top: auto;
+  padding: 5px;
+  color: #d35400;
+  font-weight: bold;
+  font-size: 12px;
+  cursor: pointer;
+  background: transparent;
+}
+
+.content1 .redflag-button .draft {
+  background: #ffa500;
+  color: #faf0e6;
+  border: 1px solid #ffa500;
+}
+
+.content1 .redflag-button .successful {
+  background: #008000;
+  border: 1px solid #008000;
+  color: #fff;
+}
+
+.content1 .redflag-button .delete {
+  background: #c0392b;
+  border: 1px solid #c0392b;
+  color: #fff;
+}
+
+.content1 .redflag-button .rejected {
+  background: #c0392b;
+  border: 1px solid black;
+  color: #fff;
+}
+.content1 .redflag-button .Interven {
+  background: #0000ff;
+  border: 1px solid #0000ff;
+  color: #faf0e6;
+}
